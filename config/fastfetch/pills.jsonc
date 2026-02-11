@@ -19,8 +19,7 @@
         { "type": "kernel", "key": " \u001b[44;30m󰒋 KE \u001b[0m\u001b[34;40m", "format": "\u001b[40m \u001b[37m{2}\u001b[0m\u001b[30m" },
         { "type": "uptime", "key": " \u001b[44;30m󰔛 UP \u001b[0m\u001b[34;40m", "format": "\u001b[40m \u001b[37m{2}h {3}m\u001b[0m\u001b[30m" },
         { "type": "packages", "key": " \u001b[44;30m󰏖 PK \u001b[0m\u001b[34;40m", "format": "\u001b[40m \u001b[37m{1} (pacman)\u001b[0m\u001b[30m" },
-        // { "type": "packages", "key": " \u001b[44;30m󰏖 PK \u001b[0m\u001b[34;40m", "format": "\u001b[40m \u001b[37m{1} (pacman), {2} (flatpak)\u001b[0m\u001b[30m" }, flatpaks doesnt work for some reason
-
+        // fatpaks { "type": "packages", "key": " \u001b[44;30m󰏖 PK \u001b[0m\u001b[34;40m", "format": "\u001b[40m \u001b[37m{1} (pacman), {5} (flatpak)\u001b[0m\u001b[30m" },
         "break",
 
         // --- SECTION: DESKTOP ---
@@ -29,7 +28,6 @@
         { "type": "shell", "key": " \u001b[44;30m SH \u001b[0m\u001b[34;40m", "format": "\u001b[40m \u001b[37m{1}\u001b[0m\u001b[30m" },
         { "type": "terminal", "key": " \u001b[44;30m TR \u001b[0m\u001b[34;40m", "format": "\u001b[40m \u001b[37m{5}\u001b[0m\u001b[30m" },
         { "type": "font", "key": " \u001b[44;30m󰛖 FT \u001b[0m\u001b[34;40m", "format": "\u001b[40m \u001b[37m{2}\u001b[0m\u001b[30m" },
-
         "break",
 
         // --- SECTION: HARDWARE ---
@@ -38,8 +36,8 @@
         { "type": "gpu", "key": " \u001b[44;30m󰢮 GP \u001b[0m\u001b[34;40m", "format": "\u001b[40m \u001b[37m{2}\u001b[0m\u001b[30m" },
         { "type": "memory", "key": " \u001b[44;30m󰍛 RA \u001b[0m\u001b[34;40m", "format": "\u001b[40m \u001b[37m{1} / {2}\u001b[0m\u001b[30m" },
         { "type": "disk", "key": " \u001b[44;30m󰋊 DI \u001b[0m\u001b[34;40m", "format": "\u001b[40m \u001b[37m{1} / {2} ({9})\u001b[0m\u001b[30m" },
-
         "break",
+
         { "type": "colors", "symbol": "circle", "block": { "range": [1, 6] } }
     ]
 }
