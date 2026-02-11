@@ -1,0 +1,32 @@
+add_newline = false
+
+format = "  $character$directory$git_branch$git_status$cmd_duration$battery "
+
+[character]
+success_symbol = "[➜](bold blue)"
+error_symbol = "[➜](bold red)"
+
+[directory]
+style = "bold magenta"
+format = "[$path]($style)"
+truncation_length = 3
+
+[git_branch]
+symbol = " 󰊢 "
+style = "bold cyan"
+format = "[$symbol$branch]($style)"
+
+[cmd_duration]
+min_time = 2000
+style = "yellow"
+format = " [$duration]($style)"
+
+[battery]
+full_symbol = "󰁹 "
+charging_symbol = "󰂄 "
+discharging_symbol = "󰂃 "
+format = " [$symbol$percentage]($style)"
+
+[[battery.display]]
+threshold = 30
+style = "bold red"
