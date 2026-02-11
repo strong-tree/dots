@@ -1,0 +1,12 @@
+{
+  "positionX": "right",
+  "positionY": "top",
+  "layer": "overlay",
+  "control-center-margin-top": 12,
+  "control-center-margin-right": 12,
+  "notification-margin-top": 65,
+  "control-center-width": 320,
+  "notification-window-width": 320,
+  "timeout": 3,
+  "fixed-offsets": true
+}

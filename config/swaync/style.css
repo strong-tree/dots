@@ -1,0 +1,49 @@
+@import "colors.css";
+
+window.notification,
+.notification-row,
+.notification-background {
+    background: transparent;
+    background-color: transparent;
+    box-shadow: none;
+}
+
+.floating-notifications .notification {
+    background: alpha(@surface_container, 0.85);
+    border-radius: 24px;
+    border: 1px solid alpha(@outline, 0.3);
+    margin: 10px;
+    padding: 0;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
+}
+
+.notification:hover,
+.notification:active,
+.notification-row:hover,
+.notification-row:active {
+    background: transparent;
+    background-color: transparent;
+}
+
+.control-center {
+    background: alpha(@surface_container_lowest, 0.8);
+    border-radius: 28px;
+    border: 1px solid alpha(@outline, 0.2);
+    padding: 12px;
+}
+
+.control-center .notification {
+    background: @surface_container;
+    border-radius: 18px;
+    margin: 8px 4px;
+    border: 1px solid alpha(@outline, 0.1);
+}
+
+.summary {
+    color: @primary;
+    font-weight: 800;
+}
+
+.body {
+    color: @on_surface_variant;
+}
