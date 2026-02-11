@@ -1,6 +1,6 @@
 @import "colors.css";
 
-/* Global Scaling & Speed */
+/* Global Settings */
 * {
     font-family: "Google Sans Flex";
     font-size: 14px;
@@ -16,9 +16,10 @@ window#waybar {
     );
     color: @on_surface;
     margin: 12px 20px;
+    /* border: 2px solid alpha(@primary, 0.8); */
 }
 
-/* Standard Pillars */
+/* Standard Pills */
 #custom-arch,
 #workspaces,
 #window,
@@ -84,6 +85,11 @@ window#waybar {
     color: @on_tertiary_container;
 }
 
+/* Arch Padding */
+#custom-arch {
+    padding-right: 25px;
+}
+
 /* Workspaces */
 #workspaces button {
     color: @on_surface_variant;
@@ -100,7 +106,6 @@ window#waybar {
 #window {
     background: transparent;
     color: @primary;
-    font-weight: 800;
 }
 
 /* Module Specific Highlights */
