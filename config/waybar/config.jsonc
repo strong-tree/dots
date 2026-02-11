@@ -13,7 +13,7 @@
   "modules-right": [
     "tray",
     "custom/updates",
-    "group/connections",
+    "network",
     "custom/brightness",
     "pulseaudio",
     "clock",
@@ -36,6 +36,7 @@
     "format": "    {}",
     "max-length": 25,
     "separate-outputs": true,
+    "tooltip": false,
   },
 
   // --- Center (Media) ---
@@ -52,6 +53,7 @@
     "max-length": 25,
     "on-scroll-up": "playerctl next",
     "on-scroll-down": "playerctl previous",
+    "tooltip": false,
   },
 
   "custom/notification": {
@@ -94,12 +96,6 @@
     "interval": 600,
   },
 
-  "group/connections": {
-    "orientation": "horizontal",
-    "drawer": { "transition-duration": 500, "click-to-reveal": true },
-    "modules": ["network", "bluetooth"],
-  },
-
   "network": {
     "format-wifi": "{icon}  {essid}",
     "format-ethernet": "󰈀  {ifname}",
@@ -107,12 +103,6 @@
     "format-icons": ["󰤯", "󰤟", "󰤢", "󰤥", "󰤨"],
     "tooltip-format": "{ipaddr} | {signalStrength}%",
     "on-click": "nm-connection-editor",
-  },
-
-  "bluetooth": {
-    "format": "",
-    "format-connected": "󰂱  {device_alias}",
-    "on-click": "blueman-manager",
   },
 
   "custom/brightness": {
@@ -153,5 +143,6 @@
   "custom/power": {
     "format": "⏻",
     "on-click": "pkill wleave || wleave",
+    "tooltip": false,
   },
 }
