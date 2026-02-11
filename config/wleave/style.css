@@ -1,0 +1,105 @@
+@import "colors.css";
+
+/* 1. Global Window Setup */
+window {
+    background-color: alpha(@surface_container_lowest, 0.8);
+    animation: window-fade 400ms cubic-bezier(0.05, 0.7, 0.1, 1);
+}
+
+/* 2. Button Styling */
+button {
+    all: unset;
+    min-width: 120px;
+    min-height: 120px;
+
+    /* Playful corner radius */
+    border-radius: 40px;
+
+    /* High contrast solid backgrounds */
+    background-color: @surface_container;
+
+    background-repeat: no-repeat;
+    background-position: center 30%;
+    background-size: 48px;
+
+    color: @on_primary_container;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: center;
+    padding-bottom: 20px;
+
+    /* Thicker outlines */
+    border: 2px solid @surface_container_high;
+
+    animation: button-pop 500ms cubic-bezier(0.34, 1.56, 0.64, 1) backwards;
+    transition: all 250ms cubic-bezier(0.2, 0, 0, 1);
+}
+
+button:hover {
+    background-color: @secondary_container;
+    color: @on_secondary_container;
+    border: 2px solid @on_secondary_container;
+    border-radius: 28px;
+    transform: scale(1.05);
+}
+
+/* 3. Red Shutdown */
+button#shutdown:hover {
+    background-color: #ffb4ab;
+    color: #690005;
+    border-color: #690005;
+}
+
+/* 4. Text Label Styling */
+button label.action-name {
+    font-family: "Google Sans Flex";
+    font-size: 14px;
+    font-weight: 900;
+    letter-spacing: 0.1px;
+    color: @on_secondary_container;
+}
+
+/* 5. Animations & Cleanup */
+@keyframes window-fade {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes button-pop {
+    from {
+        opacity: 0;
+        transform: scale(0.7) translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1) translateY(0);
+    }
+}
+
+button label.keybind,
+window > box > label {
+    font-size: 0;
+    color: transparent;
+}
+
+/* Staggered Entrance */
+button#lock {
+    animation-delay: 60ms;
+}
+button#logout {
+    animation-delay: 120ms;
+}
+button#suspend {
+    animation-delay: 180ms;
+}
+button#reboot {
+    animation-delay: 240ms;
+}
+button#shutdown {
+    animation-delay: 300ms;
+}

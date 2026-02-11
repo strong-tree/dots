@@ -1,0 +1,48 @@
+{
+  "button-layout": "grid",
+  "buttons-per-row": "5",
+  "column-spacing": "24px",
+  "row-spacing": "24px",
+  "margin": "30%",
+  "button-aspect-ratio": "1",
+  "show-keybinds": false,
+  "no-version-info": true,
+  "buttons": [
+    {
+      "label": "lock",
+      "action": "hyprlock",
+      "text": "Lock",
+      "icon": "/home/sam/.config/wleave/icons/lock.svg",
+      "keybind": "l"
+    },
+    {
+      "label": "logout",
+      "action": "hyprctl dispatch exit 0",
+      "text": "Logout",
+      "icon": "/home/sam/.config/wleave/icons/logout.svg",
+      "keybind": "e"
+    },
+    {
+      "label": "suspend",
+      "action": "systemctl suspend",
+      "text": "Suspend",
+      "icon": "/home/sam/.config/wleave/icons/suspend.svg",
+      "keybind": "u"
+    },
+
+    {
+      "label": "reboot",
+      "action": "systemctl reboot",
+      "text": "Reboot",
+      "icon": "/home/sam/.config/wleave/icons/reboot.svg",
+      "keybind": "r"
+    },
+    {
+      "label": "shutdown",
+      "action": "systemctl poweroff",
+      "text": "Shutdown",
+      "icon": "/home/sam/.config/wleave/icons/shutdown.svg",
+      "keybind": "s"
+    }
+  ]
+}
