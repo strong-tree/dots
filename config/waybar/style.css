@@ -1,0 +1,157 @@
+@import "colors.css";
+
+/* Global Scaling & Speed */
+* {
+    font-family: "Google Sans Flex";
+    font-size: 14px;
+    font-weight: 600;
+    border-radius: 24px;
+}
+
+window#waybar {
+    background: linear-gradient(
+        45deg,
+        alpha(@surface_container_lowest, 0.9),
+        alpha(@surface_container_high, 0.8)
+    );
+    color: @on_surface;
+    margin: 12px 20px;
+}
+
+/* Standard Pillars */
+#custom-arch,
+#workspaces,
+#window,
+#clock,
+#pulseaudio,
+#custom-brightness,
+#custom-updates,
+#custom-power,
+#group-connections,
+#group-stats,
+#network,
+#tray,
+#custom-notification {
+    background: alpha(@secondary_container, 0.5);
+    color: @on_secondary_container;
+    padding: 6px 20px;
+    margin: 6px 6px;
+    transition:
+        transform 0.3s cubic-bezier(0.4, 0, 0.2, 1),
+        background-color 0.3s cubic-bezier(0.4, 0, 0.2, 1),
+        opacity 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Hover States */
+#custom-arch:hover,
+#workspaces button:hover,
+#window:hover,
+#tray:hover,
+#custom-updates:hover,
+#group-connections:hover,
+#custom-brightness:hover,
+#network:hover,
+#pulseaudio:hover,
+#clock:hover {
+    background: @primary;
+    color: @on_primary;
+}
+
+/* MPRIS Music Player */
+#mpris {
+    background: linear-gradient(90deg, @tertiary, @primary);
+    color: @on_primary;
+    padding: 4px 25px;
+    margin: 6px 0;
+}
+
+#mpris:hover {
+    background: @tertiary_fixed_dim;
+}
+
+#mpris.paused {
+    background: alpha(@surface_container_highest, 0.7);
+    color: @on_surface_variant;
+}
+
+/* Notifications */
+#custom-notification {
+    color: @tertiary;
+}
+
+#custom-notification:hover {
+    background: @tertiary_container;
+    color: @on_tertiary_container;
+}
+
+/* Workspaces */
+#workspaces button {
+    color: @on_surface_variant;
+    padding: 0 10px;
+}
+
+#workspaces button.active {
+    background: @primary;
+    color: @on_primary;
+    box-shadow: 0 0 15px alpha(@primary, 0.6);
+}
+
+/* Window Title */
+#window {
+    background: transparent;
+    color: @primary;
+    font-weight: 800;
+}
+
+/* Module Specific Highlights */
+#custom-updates {
+    color: @secondary;
+}
+
+#network.disconnected {
+    background: @error;
+    color: @on_error;
+}
+
+#custom-brightness {
+    background: @tertiary;
+    color: @on_tertiary;
+}
+
+#pulseaudio {
+    color: @primary;
+}
+
+#pulseaudio.muted {
+    color: @outline;
+}
+
+#custom-power {
+    background: @error;
+    color: @on_error;
+    padding-right: 22px;
+}
+
+#custom-power:hover {
+    background: @on_error_container;
+    color: @error;
+}
+
+/* Tooltips */
+tooltip {
+    background: @surface_container_highest;
+    border: 1px solid @primary;
+    border-radius: 12px;
+}
+
+tooltip label {
+    font-family: "Adwaita Sans";
+    font-size: 14px;
+    padding: 8px;
+    color: @on_surface;
+}
+
+/* Tray Icons */
+#tray > widget:hover {
+    background: @primary_container;
+}

@@ -1,0 +1,157 @@
+{
+  "layer": "top",
+  "position": "top",
+  "height": 48,
+  "margin-top": 12,
+  "margin-left": 20,
+  "margin-right": 20,
+  "spacing": 0,
+  "reload_style_on_change": true,
+
+  "modules-left": ["custom/arch", "hyprland/workspaces", "hyprland/window"],
+  "modules-center": ["mpris", "custom/notification"],
+  "modules-right": [
+    "tray",
+    "custom/updates",
+    "group/connections",
+    "custom/brightness",
+    "pulseaudio",
+    "clock",
+    "custom/power",
+  ],
+
+  // --- Left Side ---
+  "custom/arch": {
+    "format": "   Linux",
+    "on-click": "rofi -show drun",
+    "tooltip": false,
+  },
+
+  "hyprland/workspaces": {
+    "format": "{icon}",
+    "format-icons": { "active": "󰮯", "default": "󰊠" },
+  },
+
+  "hyprland/window": {
+    "format": "    {}",
+    "max-length": 25,
+    "separate-outputs": true,
+  },
+
+  // --- Center (Media) ---
+  "mpris": {
+    "format": "{player_icon}  {artist} - {title}",
+    "format-paused": "{status_icon}<i>{artist} - {title}</i>",
+    "player-icons": {
+      "default": "󰎆 ",
+      "spotify": " ",
+      "chromium": " ",
+      "firefox": "󰈹 ",
+    },
+    "status-icons": { "paused": " " },
+    "max-length": 25,
+    "on-scroll-up": "playerctl next",
+    "on-scroll-down": "playerctl previous",
+  },
+
+  "custom/notification": {
+    "tooltip": false,
+    "format": "{icon}",
+    "format-icons": {
+      "notification": "󱅫",
+      "none": "󰂚",
+
+      "dnd-notification": "󰂛",
+      "dnd-none": "󰂛",
+
+      "inhibited-notification": "󱅫",
+      "inhibited-none": "󰂚",
+
+      "dnd-inhibited-notification": "󰂛",
+      "dnd-inhibited-none": "󰂛",
+    },
+    "return-type": "json",
+    "exec-if": "which swaync-client",
+    "exec": "swaync-client -swb",
+    "on-click": "swaync-client -t -sw",
+    "on-click-right": "swaync-client -d -sw",
+    "escape": true,
+  },
+
+  // --- Right Side ---
+  "tray": {
+    "icon-size": 20,
+    "spacing": 12,
+    "show-passive-items": true,
+  },
+
+  "custom/updates": {
+    "format": "󱍷  {}",
+    "return-type": "json",
+    "exec": "~/.config/waybar/scripts/check-updates.sh",
+    "on-click": "kitty --title 'System Update' sh -c 'yay -Syu && pkill -RTMIN+8 waybar'", // Runs update then refreshes icon
+    "signal": 8,
+    "interval": 600,
+  },
+
+  "group/connections": {
+    "orientation": "horizontal",
+    "drawer": { "transition-duration": 500, "click-to-reveal": true },
+    "modules": ["network", "bluetooth"],
+  },
+
+  "network": {
+    "format-wifi": "{icon}  {essid}",
+    "format-ethernet": "󰈀  {ifname}",
+    "format-disconnected": "󰖪  Offline",
+    "format-icons": ["󰤯", "󰤟", "󰤢", "󰤥", "󰤨"],
+    "tooltip-format": "{ipaddr} | {signalStrength}%",
+    "on-click": "nm-connection-editor",
+  },
+
+  "bluetooth": {
+    "format": "",
+    "format-connected": "󰂱  {device_alias}",
+    "on-click": "blueman-manager",
+  },
+
+  "custom/brightness": {
+    "format": "{icon}  {percentage}%",
+    "format-icons": ["󰃞", "󰃟", "󰃠"],
+    "return-type": "json",
+    "exec": "~/.config/waybar/scripts/brightness.sh",
+    "on-scroll-up": "ddcutil --bus 8 setvcp 10 + 10 && pkill -RTMIN+9 waybar",
+    "on-scroll-down": "ddcutil --bus 8 setvcp 10 - 10 && pkill -RTMIN+9 waybar",
+    "on-click": "pkill gammastep || gammastep -O 3500 &",
+    "signal": 9,
+    "interval": 30,
+  },
+
+  "pulseaudio": {
+    "format": "{icon}  {volume}%",
+    "format-muted": "    muted",
+    "format-icons": {
+      "default": ["  ", "  ", "  "],
+    },
+    "on-click": "pamixer -t",
+    "on-click-right": "pwvucontrol",
+  },
+
+  "clock": {
+    "format": "󰃰  {:%H:%M}",
+    "format-alt": "󰃭  {:%A, %B %d}",
+    "tooltip-format": "<tt>{calendar}</tt>",
+    "calendar": {
+      "mode": "month",
+      "first-day": 1,
+      "format": {
+        "today": "<span color='#ffb4ab'><b>{}</b></span>",
+      },
+    },
+  },
+
+  "custom/power": {
+    "format": "⏻",
+    "on-click": "pkill wleave || wleave",
+  },
+}
