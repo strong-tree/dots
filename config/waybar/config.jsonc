@@ -22,7 +22,7 @@
 
   // --- Left Side ---
   "custom/arch": {
-    "format": "   Linux",
+    "format": "",
     "on-click": "rofi -show drun",
     "tooltip": false,
   },
@@ -110,18 +110,19 @@
     "format-icons": ["󰃞", "󰃟", "󰃠"],
     "return-type": "json",
     "exec": "~/.config/waybar/scripts/brightness.sh",
-    "on-scroll-up": "ddcutil --bus 8 setvcp 10 + 10 && pkill -RTMIN+9 waybar",
-    "on-scroll-down": "ddcutil --bus 8 setvcp 10 - 10 && pkill -RTMIN+9 waybar",
+    "on-scroll-up": "ddcutil setvcp 10 + 10 && pkill -RTMIN+9 waybar",
+    "on-scroll-down": "ddcutil setvcp 10 - 10 && pkill -RTMIN+9 waybar",
     "on-click": "pkill gammastep || gammastep -O 3500 &",
     "signal": 9,
     "interval": 30,
+    "tooltip": false,
   },
 
   "pulseaudio": {
     "format": "{icon}  {volume}%",
     "format-muted": "    muted",
     "format-icons": {
-      "default": ["  ", "  ", "  "],
+      "default": [" ", " ", " "],
     },
     "on-click": "pamixer -t",
     "on-click-right": "pwvucontrol",
