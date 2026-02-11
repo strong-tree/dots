@@ -1,0 +1,89 @@
+configuration {
+    modi: "drun";
+    show-icons: true;
+    display-drun: "";
+    font: "Google Sans Flex 12";
+}
+
+* {
+    /* Main Background & Text */
+    bg: #1a1111;
+    fg: #f0dede;
+    accent: #ffb3b5;
+
+    /* Subtle Containers */
+    bg-alt: #271d1d;
+    input-bg: #322828;
+
+    /* Selection Highlight */
+    select-bg: #733337;
+    select-fg: #ffdada;
+
+    /* Variants */
+    fg-alt: #d7c1c1;
+    urgent: #ffb4ab;
+
+    background-color: transparent;
+    text-color: @fg;
+    margin: 0;
+    padding: 0;
+}
+
+window {
+    width: 450px;
+    border-radius: 28px;
+    border: 1px;
+    border-color: @accent;
+    background-color: @bg;
+}
+
+mainbox {
+    padding: 24px;
+    children: [inputbar, listview];
+}
+
+inputbar {
+    background-color: @input-bg;
+    margin: 0 0 16px 0;
+    padding: 14px;
+    border-radius: 28px;
+    children: [prompt, entry];
+}
+
+prompt {
+    padding: 0 12px 0 4px;
+    text-color: @accent;
+    font: "Adwaita Sans Bold 14";
+}
+
+entry {
+    placeholder: "Search";
+    placeholder-color: @fg-alt;
+}
+
+listview {
+    lines: 7;
+    fixed-height: true;
+    scrollbar: false;
+    spacing: 4px;
+}
+
+element {
+    padding: 12px;
+    border-radius: 20px;
+    spacing: 12px;
+}
+
+element selected {
+    background-color: @select-bg;
+    text-color: @select-fg;
+}
+
+element-icon {
+    size: 32px;
+}
+
+element-text {
+    vertical-align: 0.5;
+    text-color: inherit;
+}
